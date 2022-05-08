@@ -7,9 +7,7 @@ const cors = require('cors')
 const jwt = require('jsonwebtoken');
 const port = process.env.PORT || 5000;
 
-// middleware
-app.use(express.json());
-app.use(cors())
+
 
 
 function verifyToken(req, res, next) {
@@ -111,3 +109,11 @@ async function run() {
     }
 }
 
+run().catch(console.dir);
+app.get('/', (req, res) => {
+    res.send("running server")
+})
+
+app.listen(port, () => {
+    console.log(` listening on port ${port}`)
+})
