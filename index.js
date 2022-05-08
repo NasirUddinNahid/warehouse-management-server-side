@@ -30,7 +30,9 @@ function verifyToken(req, res, next) {
     next()
 }
 
-
+const uri = `mongodb+srv://${process.env.DB_userName}:${process.env.SECRET_KEY_mongoDB}@cluster0.ezv3m.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+console.log(uri);
 async function run() {
 
     try {
